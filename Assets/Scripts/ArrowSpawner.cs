@@ -15,7 +15,7 @@ public class ArrowSpawner : MonoBehaviour
     public List<Sprite> greenArrows;
     public List<Sprite> pinkArrows;
     public List<Sprite> violetArrows;
-    public List<List<Sprite>> allSprites = new List<List<Sprite>>();
+    public List<List<Sprite>> allSprites = new();
 
     public int arrowsAtOnce;
 

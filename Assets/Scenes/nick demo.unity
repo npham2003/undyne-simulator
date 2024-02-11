@@ -722,7 +722,7 @@ MonoBehaviour:
   - {fileID: -1585519093, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
   - {fileID: 1430454874, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
   arrowsAtOnce: 4
-  speedMultiplier: 0.5
+  speedMultiplier: 1
 --- !u!1 &2075114599
 GameObject:
   m_ObjectHideFlags: 0
