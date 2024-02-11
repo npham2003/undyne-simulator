@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 3447193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -377,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 835864933}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,7 +461,7 @@ Transform:
   m_GameObject: {fileID: 836686082}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -695,6 +695,34 @@ MonoBehaviour:
   bpm: 120
   time: 0
   beat: {fileID: 1784430581}
+  arrowPrefab: {fileID: 851521946822609688, guid: 3e50f99dcb9299b429fe2282e2de63a8, type: 3}
+  startingPositions:
+  - {x: 6, y: 0, z: 0}
+  - {x: 0, y: 6, z: 0}
+  - {x: -6, y: 0, z: 0}
+  - {x: 0, y: -6, z: 0}
+  blueArrows:
+  - {fileID: -1974883891, guid: c03167ffed5c05f40b8f31b26ed16e7b, type: 3}
+  - {fileID: -1132500332, guid: c03167ffed5c05f40b8f31b26ed16e7b, type: 3}
+  - {fileID: -1348307598, guid: c03167ffed5c05f40b8f31b26ed16e7b, type: 3}
+  - {fileID: 907152026, guid: c03167ffed5c05f40b8f31b26ed16e7b, type: 3}
+  greenArrows:
+  - {fileID: 855926660, guid: b77725a89970ade46a1675e50a7f95e6, type: 3}
+  - {fileID: 508983904, guid: b77725a89970ade46a1675e50a7f95e6, type: 3}
+  - {fileID: -121753340, guid: b77725a89970ade46a1675e50a7f95e6, type: 3}
+  - {fileID: -1392799540, guid: b77725a89970ade46a1675e50a7f95e6, type: 3}
+  pinkArrows:
+  - {fileID: -125948299, guid: a6a85c276c3900646840e8c13abf10b4, type: 3}
+  - {fileID: 1089596173, guid: a6a85c276c3900646840e8c13abf10b4, type: 3}
+  - {fileID: -1804938785, guid: a6a85c276c3900646840e8c13abf10b4, type: 3}
+  - {fileID: -1996336828, guid: a6a85c276c3900646840e8c13abf10b4, type: 3}
+  violetArrows:
+  - {fileID: 452636073, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
+  - {fileID: -1831938325, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
+  - {fileID: -1585519093, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
+  - {fileID: 1430454874, guid: 3289ee7b80eff244e9b9e1de167cfa13, type: 3}
+  arrowsAtOnce: 4
+  speedMultiplier: 0.5
 --- !u!1 &2075114599
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,7 +801,7 @@ Transform:
   m_GameObject: {fileID: 2075114599}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
