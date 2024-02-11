@@ -10,7 +10,7 @@ public class ArrowSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        print(gameObject.transform.position);
     }
 
     // Update is called once per frame
