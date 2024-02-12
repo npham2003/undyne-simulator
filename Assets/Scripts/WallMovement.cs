@@ -86,4 +86,7 @@ public class WallMovement : MonoBehaviour
         transform.rotation = targetRotation;
         isRotating = false;
     }
+
+   
+
 }

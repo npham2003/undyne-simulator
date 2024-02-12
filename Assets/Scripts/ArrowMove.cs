@@ -10,14 +10,23 @@ public class ArrowMove : MonoBehaviour
 
     public float distance;
 
-    public float destroyAt;
+    public float firstAccept;
+    public float lastAccept;
     public float movePerFrame;
 
+    public int color;
+
+    public bool failed = false;
+
+    public bool destroyed = false;
+
+    public GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        distance=6-destroyAt;
+        gameManager=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        distance=6-firstAccept;
         movePerFrame = distance/(timeToHit*60);
     }
 
@@ -28,29 +37,34 @@ public class ArrowMove : MonoBehaviour
             movePerFrame = distance/(timeToHit*50);
             if(orientation==0){
                 gameObject.transform.position=new Vector3(gameObject.transform.position.x-movePerFrame,gameObject.transform.position.y,gameObject.transform.position.z);
-                if(gameObject.transform.position.x<=destroyAt){
-                    Destroy(this.gameObject);
+                if(gameObject.transform.position.x<=lastAccept){
+                    failed = true;
                 }
             }
             if(orientation==1){
                 gameObject.transform.position=new Vector3(gameObject.transform.position.x,gameObject.transform.position.y-movePerFrame,gameObject.transform.position.z);
-                if(gameObject.transform.position.y<=destroyAt){
-                    Destroy(this.gameObject);
+                if(gameObject.transform.position.y<=lastAccept){
+                    failed = true;
                 }
             }
             if(orientation==2){
                 gameObject.transform.position=new Vector3(gameObject.transform.position.x+movePerFrame,gameObject.transform.position.y,gameObject.transform.position.z);
-                if(gameObject.transform.position.x>=-destroyAt){
-                    Destroy(this.gameObject);
+                if(gameObject.transform.position.x>=-lastAccept){
+                    failed = true;
                 }
             }
             if(orientation==3){
                 gameObject.transform.position=new Vector3(gameObject.transform.position.x,gameObject.transform.position.y+movePerFrame,gameObject.transform.position.z);
-                if(gameObject.transform.position.y>=-destroyAt){
-                    Destroy(this.gameObject);
+                if(gameObject.transform.position.y>=-lastAccept){
+                    failed = true;
                 }
             }
 
+        }
+        if(Vector3.Distance(new Vector3(0,0,0),gameObject.transform.position)<=0.1&&!destroyed){
+            gameManager.Hurt();
+            destroyed=true;
+            Destroy(gameObject);
         }
         
     }
