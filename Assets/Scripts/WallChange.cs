@@ -8,6 +8,7 @@ public class WallChange : MonoBehaviour
     public Sprite[] sprites; // Assign your sprites in the Inspector
 
     private SpriteRenderer spriteRenderer;
+    [SerializeField]
     private int currentSpriteIndex = 0;
 
     void Start()
@@ -32,5 +33,13 @@ public class WallChange : MonoBehaviour
     {
         currentSpriteIndex = (currentSpriteIndex + 1) % sprites.Length;
         spriteRenderer.sprite = sprites[currentSpriteIndex];
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        ArrowMove moveScript=other.gameObject.GetComponent<ArrowMove>();
+        if(!moveScript.failed && moveScript.color==currentSpriteIndex){
+            Destroy(other.gameObject);
+        }
     }
 }
