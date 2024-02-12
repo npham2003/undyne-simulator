@@ -124,6 +124,9 @@ public class ArrowSpawner : MonoBehaviour
     }
     public void BPMDownButton(){
         bpm-=10;
+        
+        gameManager.score-=gameManager.bpmDownCost;
+        gameManager.scoreTextGame.text=gameManager.score.ToString();
         gameManager.bpmDownCost*=2;
         gameManager.LevelUpButtons();
     }

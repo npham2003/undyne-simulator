@@ -65,6 +65,9 @@ public class GameManager : MonoBehaviour
     public void Heal(){
         LevelUpButtons();
         health+=1;
+        
+        score-=livesCost;
+        scoreTextGame.text=score.ToString();
         livesCost*=2;
         healthBar.GetComponent<UnityEngine.UI.Image>().sprite=healthBarSprites[health];
     }
@@ -87,9 +90,11 @@ public class GameManager : MonoBehaviour
     }
 
     public void ArrowPoints(){
-        score+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
-        realScore+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
-        scoreTextGame.text=score.ToString();;
+        if(!gameOver){
+            score+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
+            realScore+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
+            scoreTextGame.text=score.ToString();
+        }
 
     }
     public void LevelUpButtons(){
