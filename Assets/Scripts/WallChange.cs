@@ -49,8 +49,7 @@ public class WallChange : MonoBehaviour
         ArrowMove moveScript=other.gameObject.GetComponent<ArrowMove>();
         GameManager gameManager=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         if(!moveScript.failed && moveScript.color==currentSpriteIndex){
-            gameManager.score+=(int)(100*(gameManager.extraMultiplier*gameManager.extraMultiplierOn)*(Mathf.Pow(gameManager.bpmUpMultipler,gameManager.bpmMultiplierExponent)));
-            gameManager.realScore+=(int)(100*(gameManager.extraMultiplier*gameManager.extraMultiplierOn)*(Mathf.Pow(gameManager.bpmUpMultipler,gameManager.bpmMultiplierExponent)));
+            gameManager.ArrowPoints();
             Destroy(other.gameObject);
         }
     }

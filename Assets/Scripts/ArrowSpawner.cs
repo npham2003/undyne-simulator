@@ -103,6 +103,8 @@ public class ArrowSpawner : MonoBehaviour
             }
         }else{
             print("level end");
+            beats=0;
+            gameManager.LevelClear();
         }
     }
 
@@ -113,12 +115,16 @@ public class ArrowSpawner : MonoBehaviour
         }else{
             gameManager.extraMultiplierOn=0;
         }
+        gameManager.LevelUpButtons();
     }
     public void BPMUpButton(){
         bpm+=10;
         gameManager.bpmMultiplierExponent+=1;
+        gameManager.LevelUpButtons();
     }
     public void BPMDownButton(){
         bpm-=10;
+        gameManager.bpmDownCost*=2;
+        gameManager.LevelUpButtons();
     }
 }
