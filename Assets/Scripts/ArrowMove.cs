@@ -18,9 +18,14 @@ public class ArrowMove : MonoBehaviour
 
     public bool failed = false;
 
+    public bool destroyed = false;
+
+    public GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         distance=6-firstAccept;
         movePerFrame = distance/(timeToHit*60);
     }
@@ -56,7 +61,9 @@ public class ArrowMove : MonoBehaviour
             }
 
         }
-        if(Vector3.Distance(new Vector3(0,0,0),gameObject.transform.position)<=0.1){
+        if(Vector3.Distance(new Vector3(0,0,0),gameObject.transform.position)<=0.1&&!destroyed){
+            gameManager.Hurt();
+            destroyed=true;
             Destroy(gameObject);
         }
         
