@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     public void ExtraWallButton(){
         score-=wallCost;
         wallCost*=2;
+        scoreTextGame.text=score.ToString();
         LevelUpButtons();
         extraWall.SetActive(true);
         extraWall.GetComponent<ExtraWall>().Reset();
