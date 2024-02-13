@@ -13,6 +13,10 @@ public class WallChange : MonoBehaviour
     [SerializeField]
     private int currentSpriteIndex = 0;
 
+    public Color[] colors;
+
+    public GameObject[] backgroundCircles;
+
 
 
     void Start()
@@ -42,6 +46,12 @@ public class WallChange : MonoBehaviour
     {
         currentSpriteIndex = (currentSpriteIndex + change + sprites.Length) % sprites.Length;
         spriteRenderer.sprite = sprites[currentSpriteIndex];
+        
+        for(int i=0;i<backgroundCircles.Length;i++){
+            backgroundCircles[i].GetComponent<SpriteRenderer>().color=new Color(colors[currentSpriteIndex].r,colors[currentSpriteIndex].g,colors[currentSpriteIndex].b,backgroundCircles[i].GetComponent<SpriteRenderer>().color.a);
+
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)

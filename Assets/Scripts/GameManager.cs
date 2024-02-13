@@ -42,6 +42,10 @@ public class GameManager : MonoBehaviour
 
     public bool gameOver=false;
     public TMP_Text scoreTextGame;
+    public AudioSource boomSound;
+    public AudioSource scoreSound;
+    public AudioSource gameOverSound;
+    
     void Start()
     {
         arrowSpawner=this.GetComponent<ArrowSpawner>();
@@ -58,6 +62,11 @@ public class GameManager : MonoBehaviour
     public void Hurt(){
 
         health-=1;
+        if(health>0){
+            boomSound.Play();
+        }else{
+            gameOverSound.Play();
+        }
         if(health>=0){
             healthBar.GetComponent<UnityEngine.UI.Image>().sprite=healthBarSprites[health];
         }
@@ -91,6 +100,7 @@ public class GameManager : MonoBehaviour
 
     public void ArrowPoints(){
         if(!gameOver){
+            scoreSound.Play();
             score+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
             realScore+=(int)(100*(Mathf.Pow(extraMultiplier,extraMultiplierOn))*(Mathf.Pow(bpmUpMultipler,bpmMultiplierExponent)));
             scoreTextGame.text=score.ToString();
