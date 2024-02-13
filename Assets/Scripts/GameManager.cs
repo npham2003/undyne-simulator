@@ -27,7 +27,9 @@ public class GameManager : MonoBehaviour
 
     public int level=1;
     private ArrowSpawner arrowSpawner;
+    private ExtraWall extraWall;
 
+    public GameObject gameStartPanel;    
     public GameObject gameOverPanel;
     public GameObject levelPanel;
 
@@ -47,7 +49,7 @@ public class GameManager : MonoBehaviour
     public AudioSource gameOverSound;
 
     public AudioSource nextLevelSound;
-    
+
     void Start()
     {
         arrowSpawner=this.GetComponent<ArrowSpawner>();
@@ -59,6 +61,11 @@ public class GameManager : MonoBehaviour
         if(health==0){
             GameOver();
         }
+    }
+
+    public void StartGame(){
+        gameStartPanel.SetActive(false);
+        
     }
 
     public void Hurt(){
@@ -130,9 +137,10 @@ public class GameManager : MonoBehaviour
         }else{
             extraNotesButton.interactable=true;
         }
+        
         livesButton.GetComponentInChildren<TMP_Text>().text="Recover 1 Health\n"+livesCost+" points";
         bpmDownButton.GetComponentInChildren<TMP_Text>().text="BPM Down\n"+bpmDownCost+" points";
-        wallButton.GetComponentInChildren<TMP_Text>().text="Temporary Extra Wall\n"+wallCost+" points";
+        wallButton.GetComponentInChildren<TMP_Text>().text="Temporary Wall\n"+wallCost+" points";
     }
 
     public void NewLevel(){

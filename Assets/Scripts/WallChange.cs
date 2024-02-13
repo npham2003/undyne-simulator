@@ -32,12 +32,12 @@ public class WallChange : MonoBehaviour
     {
         if (Input.GetKeyDown(changeSpriteKeyLeft) && sprites.Length > 1)
         {
-            ChangeSprite(-1);
+            ChangeSprite(1);
             Debug.Log("Changed: ");
         }
         if (Input.GetKeyDown(changeSpriteKeyRight) && sprites.Length > 1)
         {
-            ChangeSprite(+1);
+            ChangeSprite(-1);
             Debug.Log("Changed: ");
         }
     }
@@ -46,9 +46,10 @@ public class WallChange : MonoBehaviour
     {
         currentSpriteIndex = (currentSpriteIndex + change + sprites.Length) % sprites.Length;
         spriteRenderer.sprite = sprites[currentSpriteIndex];
-        
+        Debug.Log("Current index: " + currentSpriteIndex);
+         
         for(int i=0;i<backgroundCircles.Length;i++){
-            backgroundCircles[i].GetComponent<SpriteRenderer>().color=new Color(colors[currentSpriteIndex].r,colors[currentSpriteIndex].g,colors[currentSpriteIndex].b,backgroundCircles[i].GetComponent<SpriteRenderer>().color.a);
+            backgroundCircles[i].GetComponent<SpriteRenderer>().color = new Color(colors[currentSpriteIndex].r,colors[currentSpriteIndex].g,colors[currentSpriteIndex].b,backgroundCircles[i].GetComponent<SpriteRenderer>().color.a);
 
         }
 
