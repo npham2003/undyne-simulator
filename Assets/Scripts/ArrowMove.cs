@@ -63,6 +63,7 @@ public class ArrowMove : MonoBehaviour
         }
         if(Vector3.Distance(new Vector3(0,0,0),gameObject.transform.position)<=0.1&&!destroyed){
             gameManager.Hurt();
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<ShakeBehavior>().triggerShake();
             destroyed=true;
             Destroy(gameObject);
         }
