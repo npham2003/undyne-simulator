@@ -16,7 +16,10 @@ public class WallChange : MonoBehaviour
     public Color[] colors;
 
     public GameObject[] backgroundCircles;
+    public List<float> angles = new List<float>{90f, 0f, -90f, 180f};
 
+    public GameObject wheel;
+    private WheelMovement wheelMovement;
 
 
     void Start()
@@ -26,6 +29,8 @@ public class WallChange : MonoBehaviour
         {
             spriteRenderer.sprite = sprites[currentSpriteIndex];
         }
+        wheelMovement=wheel.GetComponent<WheelMovement>();
+        
     }
 
     void Update()
@@ -46,6 +51,7 @@ public class WallChange : MonoBehaviour
     {
         currentSpriteIndex = (currentSpriteIndex + change + sprites.Length) % sprites.Length;
         spriteRenderer.sprite = sprites[currentSpriteIndex];
+        StartCoroutine(wheelMovement.RotateAngle(angles[currentSpriteIndex]));
         Debug.Log("Current index: " + currentSpriteIndex);
          
         for(int i=0;i<backgroundCircles.Length;i++){
