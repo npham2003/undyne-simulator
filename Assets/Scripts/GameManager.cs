@@ -66,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void StartGame(){
         gameStartPanel.SetActive(false);
         arrowSpawner.inLevel=1;
+        nextLevelSound.Play();
     }
 
     public void Hurt(){

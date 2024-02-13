@@ -20,6 +20,7 @@ public class WallChange : MonoBehaviour
 
     public GameObject wheel;
     private WheelMovement wheelMovement;
+    public AudioSource changeSound;
 
 
     void Start()
@@ -53,7 +54,7 @@ public class WallChange : MonoBehaviour
         spriteRenderer.sprite = sprites[currentSpriteIndex];
         StartCoroutine(wheelMovement.RotateAngle(angles[currentSpriteIndex]));
         Debug.Log("Current index: " + currentSpriteIndex);
-         
+        changeSound.Play();
         for(int i=0;i<backgroundCircles.Length;i++){
             backgroundCircles[i].GetComponent<SpriteRenderer>().color = new Color(colors[currentSpriteIndex].r,colors[currentSpriteIndex].g,colors[currentSpriteIndex].b,backgroundCircles[i].GetComponent<SpriteRenderer>().color.a);
 
