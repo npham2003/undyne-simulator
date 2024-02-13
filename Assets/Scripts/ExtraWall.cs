@@ -11,6 +11,7 @@ public class ExtraWall : MonoBehaviour
     public int randomIdx = 0;
     public bool wallEnabled = true;
     public GameManager gameManager;
+    public Color color;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +19,13 @@ public class ExtraWall : MonoBehaviour
         // randomly decides the position 
         randomIdx = Random.Range(0, angles.Count);
         wallPivot.transform.rotation = Quaternion.Euler(0f, 0f, angles[randomIdx]);
+        color=Color.white;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print(color);
         
     }
 
@@ -34,7 +36,8 @@ public class ExtraWall : MonoBehaviour
         if(!moveScript.failed && blockCount > 0){
             gameManager.ArrowPoints();
             Destroy(other.gameObject);
-
+            color.a-=0.2f;
+            gameObject.GetComponent<SpriteRenderer>().color=color;
             blockCount -= 1; // decrease the available blocking count
         }
         if(blockCount == 0)
@@ -45,6 +48,8 @@ public class ExtraWall : MonoBehaviour
     }
     public void Reset(){
         blockCount=5;
+        color.a=1;
+        gameObject.GetComponent<SpriteRenderer>().color=color;
     }
 
 }

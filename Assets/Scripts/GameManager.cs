@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
         }else{
             bpmDownButton.interactable=true;
         }
-        if(score<wallCost){
+        if(score<wallCost||extraWall.activeSelf){
             wallButton.interactable=false;
         }else{
             wallButton.interactable=true;

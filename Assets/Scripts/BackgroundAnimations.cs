@@ -16,12 +16,12 @@ public class BackgroundAnimations : MonoBehaviour
     void Update()
     {
         for(int i=0;i<backgroundCircles.Length;i++){
-            print(backgroundCircles[i].GetComponent<SpriteRenderer>().color.a);
+          
             Color color = backgroundCircles[i].GetComponent<SpriteRenderer>().color;
             color.a=color.a-=Time.deltaTime*disappearRate;
             backgroundCircles[i].GetComponent<SpriteRenderer>().color=color;
         }
-        print(backgroundCircles[0].GetComponent<SpriteRenderer>().color);
+       
     }
 
     
