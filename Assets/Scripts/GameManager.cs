@@ -45,6 +45,8 @@ public class GameManager : MonoBehaviour
     public AudioSource boomSound;
     public AudioSource scoreSound;
     public AudioSource gameOverSound;
+
+    public AudioSource nextLevelSound;
     
     void Start()
     {
@@ -137,6 +139,7 @@ public class GameManager : MonoBehaviour
         levelPanel.SetActive(false);
         arrowSpawner.inLevel=1;
         arrowSpawner.bpm+=10;
+        nextLevelSound.Play();
         level+=1;
     }
 }
