@@ -48,13 +48,14 @@ public class ArrowSpawner : MonoBehaviour
         int color;
         int orientation;
         GameObject arrow;
+        time+=Time.deltaTime;
         if(inLevel==2){
-            time+=Time.deltaTime;
+            
             realTime+=Time.deltaTime;
             if(time>=(60/(float)bpm)){
                 time-=60/(float)bpm;
                 beat.Play();
-                
+                gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
                 if(realTime<10){
                     color = Random.Range(0,4);
                     orientation = Random.Range(0,4);
@@ -91,10 +92,11 @@ public class ArrowSpawner : MonoBehaviour
                 inLevel=0;
             }
         }else if(inLevel==1){
-            time+=Time.deltaTime;
+            
             if(time>=(60/(float)bpm)){
                 time-=60/(float)bpm;
                 beat.Play();
+                gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
                 beats+=1;
             }
             if(beats==4){
@@ -105,6 +107,11 @@ public class ArrowSpawner : MonoBehaviour
             print("level end");
             beats=0;
             gameManager.LevelClear();
+            if(time>=(60/(float)bpm)){
+                time-=60/(float)bpm;
+                beat.Play();
+                gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
+            }
         }
     }
 
