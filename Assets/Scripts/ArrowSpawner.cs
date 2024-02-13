@@ -103,10 +103,16 @@ public class ArrowSpawner : MonoBehaviour
                 inLevel=2;
                 realTime=0;
             }
-        }else{
+        }else if(inLevel==0){
             print("level end");
             beats=0;
             gameManager.LevelClear();
+            if(time>=(60/(float)bpm)){
+                time-=60/(float)bpm;
+                beat.Play();
+                gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
+            }
+        }else{
             if(time>=(60/(float)bpm)){
                 time-=60/(float)bpm;
                 beat.Play();

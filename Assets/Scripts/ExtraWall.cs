@@ -23,11 +23,7 @@ public class ExtraWall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(blockCount == 0)
-        {
-            gameObject.SetActive(false);
-
-        }
+        
         
     }
 
@@ -41,6 +37,14 @@ public class ExtraWall : MonoBehaviour
 
             blockCount -= 1; // decrease the available blocking count
         }
+        if(blockCount == 0)
+        {
+            gameObject.SetActive(false);
+
+        }
+    }
+    public void Reset(){
+        blockCount=5;
     }
 
 }

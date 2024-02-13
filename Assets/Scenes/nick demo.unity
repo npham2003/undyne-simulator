@@ -3706,9 +3706,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ExtraWall, Assembly-CSharp
-        m_MethodName: EnableExtraWall
+      - m_Target: {fileID: 1784430583}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ExtraWallButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5487,7 +5487,7 @@ MonoBehaviour:
   fireExtra: 0
   arrowsAtOnce: 4
   speedMultiplier: 1
-  inLevel: 1
+  inLevel: 3
   beats: 0
   gameManager: {fileID: 0}
 --- !u!114 &1784430583
@@ -5521,6 +5521,7 @@ MonoBehaviour:
   scoreText: {fileID: 854448494}
   levelText: {fileID: 1984482998}
   level: 1
+  extraWall: {fileID: 1085049619}
   gameStartPanel: {fileID: 1691532624}
   gameOverPanel: {fileID: 94528681}
   levelPanel: {fileID: 1696492327}
