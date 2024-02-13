@@ -27,7 +27,8 @@ public class GameManager : MonoBehaviour
 
     public int level=1;
     private ArrowSpawner arrowSpawner;
-    private ExtraWall extraWall;
+    [SerializeField]
+    private GameObject extraWall;
 
     public GameObject gameStartPanel;    
     public GameObject gameOverPanel;
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(){
         gameStartPanel.SetActive(false);
-        
+        arrowSpawner.inLevel=1;
     }
 
     public void Hurt(){
@@ -81,12 +82,13 @@ public class GameManager : MonoBehaviour
         }
     }
     public void Heal(){
-        LevelUpButtons();
+        
         health+=1;
         
         score-=livesCost;
         scoreTextGame.text=score.ToString();
         livesCost*=2;
+        LevelUpButtons();
         healthBar.GetComponent<UnityEngine.UI.Image>().sprite=healthBarSprites[health];
     }
     void GameOver(){
@@ -94,6 +96,14 @@ public class GameManager : MonoBehaviour
         levelText.text="You Made It To Level "+level;
         scoreText.text="Score: "+realScore;
         gameOverPanel.SetActive(true);
+    }
+
+    public void ExtraWallButton(){
+        score-=wallCost;
+        wallCost*=2;
+        LevelUpButtons();
+        extraWall.SetActive(true);
+        extraWall.GetComponent<ExtraWall>().Reset();
     }
 
     public void Reload(){
