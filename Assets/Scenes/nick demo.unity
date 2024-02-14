@@ -721,6 +721,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   changeSpriteKeyLeft: 97
   changeSpriteKeyRight: 100
+  changeSpriteKeyUp: 119
+  changeSpriteKeyDown: 115
   sprites:
   - {fileID: 21300000, guid: 127f181d119013f4dbb7dbf68af18bc2, type: 3}
   - {fileID: 21300000, guid: 43c34ef8770c5c944b56bc9563a09216, type: 3}
@@ -5079,7 +5081,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1683841845}
   - component: {fileID: 1683841844}
-  - component: {fileID: 1683841846}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
@@ -5154,19 +5155,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &1683841846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683841843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac286818b21cdba448b778f12c2cbb3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 0.2
 --- !u!1 &1691532624
 GameObject:
   m_ObjectHideFlags: 0
@@ -6253,8 +6241,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Change Wall Position : Arrow Keys\nChange Wall Color \n\tA Key: Changes
-    counter-clockwise\n\tD Key: Changes clockwise"
+  m_text: "Change Wall Position : Arrow Keys\nChange Wall Color \n\tWASD to match
+    the color wheel\n\t"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1c9979e4762e68e49947d7e6a6942654, type: 2}
   m_sharedMaterial: {fileID: 2075202717080905747, guid: 1c9979e4762e68e49947d7e6a6942654, type: 2}

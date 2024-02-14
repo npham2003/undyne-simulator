@@ -6,6 +6,8 @@ public class WallChange : MonoBehaviour
 {
     public KeyCode changeSpriteKeyLeft = KeyCode.A; // Change this to the key you want to use
     public KeyCode changeSpriteKeyRight = KeyCode.D;
+    public KeyCode changeSpriteKeyUp = KeyCode.W;
+    public KeyCode changeSpriteKeyDown = KeyCode.S;
 
     public Sprite[] sprites; // Assign your sprites in the Inspector
 
@@ -19,7 +21,7 @@ public class WallChange : MonoBehaviour
     public List<float> angles = new List<float>{90f, 0f, -90f, 180f};
 
     public GameObject wheel;
-    private WheelMovement wheelMovement;
+   
     public AudioSource changeSound;
 
 
@@ -30,7 +32,7 @@ public class WallChange : MonoBehaviour
         {
             spriteRenderer.sprite = sprites[currentSpriteIndex];
         }
-        wheelMovement=wheel.GetComponent<WheelMovement>();
+       
         
     }
 
@@ -43,16 +45,26 @@ public class WallChange : MonoBehaviour
         }
         if (Input.GetKeyDown(changeSpriteKeyRight) && sprites.Length > 1)
         {
-            ChangeSprite(-1);
+            ChangeSprite(3);
+            Debug.Log("Changed: ");
+        }
+        if (Input.GetKeyDown(changeSpriteKeyUp) && sprites.Length > 1)
+        {
+            ChangeSprite(0);
+            Debug.Log("Changed: ");
+        }
+        if (Input.GetKeyDown(changeSpriteKeyDown) && sprites.Length > 1)
+        {
+            ChangeSprite(2);
             Debug.Log("Changed: ");
         }
     }
 
     void ChangeSprite(int change)
     {
-        currentSpriteIndex = (currentSpriteIndex + change + sprites.Length) % sprites.Length;
+        currentSpriteIndex = change;
         spriteRenderer.sprite = sprites[currentSpriteIndex];
-        StartCoroutine(wheelMovement.RotateAngle(angles[currentSpriteIndex]));
+        
         Debug.Log("Current index: " + currentSpriteIndex);
         changeSound.Play();
         for(int i=0;i<backgroundCircles.Length;i++){
