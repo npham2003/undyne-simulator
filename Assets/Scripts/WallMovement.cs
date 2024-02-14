@@ -12,6 +12,8 @@ public class WallMovement : MonoBehaviour
     private float rightAngle = 90f;
     private float leftAngle = 270f;
     private int currStatus = 2;
+
+    public GameObject gameManager;
     // up: 0, right: 1, down: 2, left: 3
 
 
@@ -24,46 +26,48 @@ public class WallMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.UpArrow) && !isRotating)
-        { 
-            if(currStatus != 0)
-            {
-                StartCoroutine(RotateAngle(upAngle));
-                currStatus = 0;
-            }
-           
-        }  
-
-        else if(Input.GetKey(KeyCode.RightArrow))
-        {
-            if(currStatus != 1)
-            {
-                StartCoroutine(RotateAngle(rightAngle));
-                currStatus = 1;
-            }
+        if(!gameManager.GetComponent<GameManager>().gameOver&&gameManager.GetComponent<ArrowSpawner>().inLevel!=3){
+            if(Input.GetKey(KeyCode.UpArrow) && !isRotating)
+            { 
+                if(currStatus != 0)
+                {
+                    StartCoroutine(RotateAngle(upAngle));
+                    currStatus = 0;
+                }
             
-        } 
+            }  
 
-        else if(Input.GetKey(KeyCode.DownArrow))
-        {
-            
-            if(currStatus != 2)
+            else if(Input.GetKey(KeyCode.RightArrow))
             {
-                StartCoroutine(RotateAngle(downAngle));
-                currStatus = 2;
-            }
-        }   
+                if(currStatus != 1)
+                {
+                    StartCoroutine(RotateAngle(rightAngle));
+                    currStatus = 1;
+                }
+                
+            } 
 
-        else if(Input.GetKey(KeyCode.LeftArrow))
-        {   
-            if(currStatus != 3)
+            else if(Input.GetKey(KeyCode.DownArrow))
             {
-                StartCoroutine(RotateAngle(leftAngle));
-                currStatus = 3;
-            }
-        }  
+                
+                if(currStatus != 2)
+                {
+                    StartCoroutine(RotateAngle(downAngle));
+                    currStatus = 2;
+                }
+            }   
 
-        Debug.Log(gameObject.transform.rotation.eulerAngles);
+            else if(Input.GetKey(KeyCode.LeftArrow))
+            {   
+                if(currStatus != 3)
+                {
+                    StartCoroutine(RotateAngle(leftAngle));
+                    currStatus = 3;
+                }
+            }  
+
+            Debug.Log(gameObject.transform.rotation.eulerAngles);
+        }
     }
 
     IEnumerator RotateAngle(float rotationAngle)

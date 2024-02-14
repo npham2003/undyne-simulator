@@ -50,6 +50,8 @@ public class ExtraWall : MonoBehaviour
         blockCount=5;
         color.a=1;
         gameObject.GetComponent<SpriteRenderer>().color=color;
+        randomIdx = Random.Range(0, angles.Count);
+        wallPivot.transform.rotation = Quaternion.Euler(0f, 0f, angles[randomIdx]);
     }
 
 }

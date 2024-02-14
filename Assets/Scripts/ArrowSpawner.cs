@@ -35,7 +35,7 @@ public class ArrowSpawner : MonoBehaviour
     void Start()
     {
         gameManager=GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        print(gameObject.transform.position);
+        
         allSprites.Add(blueArrows);
         allSprites.Add(greenArrows);
         allSprites.Add(pinkArrows);
@@ -104,7 +104,7 @@ public class ArrowSpawner : MonoBehaviour
                 realTime=0;
             }
         }else if(inLevel==0){
-            print("level end");
+           
             beats=0;
             gameManager.LevelClear();
             if(time>=(60/(float)bpm)){
@@ -112,12 +112,8 @@ public class ArrowSpawner : MonoBehaviour
                 beat.Play();
                 gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
             }
-        }else{
-            if(time>=(60/(float)bpm)){
-                time-=60/(float)bpm;
-                beat.Play();
-                gameObject.GetComponent<BackgroundAnimations>().StartPulse(12/(float)bpm);
-            }
+        }else if(inLevel==3){
+            time=0;
         }
     }
 

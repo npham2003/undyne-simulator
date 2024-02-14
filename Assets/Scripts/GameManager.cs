@@ -97,6 +97,12 @@ public class GameManager : MonoBehaviour
     }
     void GameOver(){
         gameOver=true;
+        GameObject[] arrows;
+        arrows=GameObject.FindGameObjectsWithTag("Arrow");
+        for(int i = 0;i<arrows.Length;i++){
+            Destroy(arrows[i]);
+        }
+        arrowSpawner.inLevel=4;
         levelText.text="You Made It To Level "+level;
         bpmText.text="You Died At "+arrowSpawner.bpm+" BPM";
         scoreText.text="Score: "+realScore;

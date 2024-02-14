@@ -747,6 +747,7 @@ MonoBehaviour:
   - 180
   wheel: {fileID: 1683841843}
   changeSound: {fileID: 207531814}
+  gameManager: {fileID: 1784430579}
 --- !u!212 &207531811
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4087,6 +4088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 0.2
+  gameManager: {fileID: 1784430579}
 --- !u!212 &1295176679
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5597,7 +5599,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d2b1e482ea168d6479008b79ec6fb3e7, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

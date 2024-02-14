@@ -24,6 +24,8 @@ public class WallChange : MonoBehaviour
    
     public AudioSource changeSound;
 
+    public GameObject gameManager;
+
 
     void Start()
     {
@@ -38,25 +40,27 @@ public class WallChange : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(changeSpriteKeyLeft) && sprites.Length > 1)
-        {
-            ChangeSprite(1);
-            Debug.Log("Changed: ");
-        }
-        if (Input.GetKeyDown(changeSpriteKeyRight) && sprites.Length > 1)
-        {
-            ChangeSprite(3);
-            Debug.Log("Changed: ");
-        }
-        if (Input.GetKeyDown(changeSpriteKeyUp) && sprites.Length > 1)
-        {
-            ChangeSprite(0);
-            Debug.Log("Changed: ");
-        }
-        if (Input.GetKeyDown(changeSpriteKeyDown) && sprites.Length > 1)
-        {
-            ChangeSprite(2);
-            Debug.Log("Changed: ");
+        if(!gameManager.GetComponent<GameManager>().gameOver&&gameManager.GetComponent<ArrowSpawner>().inLevel!=3){
+            if (Input.GetKeyDown(changeSpriteKeyLeft) && sprites.Length > 1)
+            {
+                ChangeSprite(1);
+                Debug.Log("Changed: ");
+            }
+            if (Input.GetKeyDown(changeSpriteKeyRight) && sprites.Length > 1)
+            {
+                ChangeSprite(3);
+                Debug.Log("Changed: ");
+            }
+            if (Input.GetKeyDown(changeSpriteKeyUp) && sprites.Length > 1)
+            {
+                ChangeSprite(0);
+                Debug.Log("Changed: ");
+            }
+            if (Input.GetKeyDown(changeSpriteKeyDown) && sprites.Length > 1)
+            {
+                ChangeSprite(2);
+                Debug.Log("Changed: ");
+            }
         }
     }
 
