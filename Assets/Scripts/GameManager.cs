@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text levelText;
 
+    public TMP_Text bpmText;
+
     public int level=1;
     private ArrowSpawner arrowSpawner;
     [SerializeField]
@@ -49,6 +51,8 @@ public class GameManager : MonoBehaviour
     public AudioSource gameOverSound;
 
     public AudioSource nextLevelSound;
+
+    
 
     void Start()
     {
@@ -94,6 +98,7 @@ public class GameManager : MonoBehaviour
     void GameOver(){
         gameOver=true;
         levelText.text="You Made It To Level "+level;
+        bpmText.text="You Died At "+arrowSpawner.bpm+" BPM";
         scoreText.text="Score: "+realScore;
         gameOverPanel.SetActive(true);
     }
